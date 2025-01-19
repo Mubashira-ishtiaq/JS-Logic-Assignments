@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Logics Assignment</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #444;
+}
+
+input {
+    width: 80%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Logics Assignment</h1>
+
+    <div class="container">
+        <h2>Check Palindrome</h2>
+        <input type="text" id="palindromeInput" placeholder="Enter a string">
+        <button onclick="checkPalindrome()">Check</button>
+        <p id="palindromeResult"></p>
+
+        
+        <h2>Reverse a String</h2>
+        <input type="text" id="reverseInput" placeholder="Enter a string">
+        <button onclick="reverseText()">Reverse</button>
+        <p id="reverseResult"></p>
+
+        
+        <h2>Sum of Numbers in Array</h2>
+        <input type="text" id="sumInput" placeholder="Enter numbers (comma separated)">
+        <button onclick="sumArrayNumbers()">Find Sum</button>
+        <p id="sumResult"></p>
+
+        
+        <h2>Find the Longest Word</h2>
+        <input type="text" id="longestWordInput" placeholder="Enter a sentence">
+        <button onclick="findLongest()">Find Longest</button>
+        <p id="longestWordResult"></p>
+
+        
+        <h2>Find Factorial</h2>
+        <input type="number" id="factorialInput" placeholder="Enter a number">
+        <button onclick="calculateFactorial()">Calculate</button>
+        <p id="factorialResult"></p>
+    </div>
+
+    <script>
+        // Q1: Check if a String is Palindrome
+function checkPalindrome() {
+    let str = document.getElementById("palindromeInput").value.toLowerCase().replace(/[^a-z0-9]/g, '');
+    let reversedStr = str.split('').reverse().join('');
+    document.getElementById("palindromeResult").innerText = (str === reversedStr) ? "Yes, it's a palindrome!" : "No, not a palindrome.";
+}
+
+// Q2: Reverse a String
+function reverseText() {
+    let str = document.getElementById("reverseInput").value;
+    document.getElementById("reverseResult").innerText = "Reversed: " + str.split('').reverse().join('');
+}
+
+// Q3: Find the Sum of Numbers in an Array
+function sumArrayNumbers() {
+    let numbers = document.getElementById("sumInput").value.split(',').map(Number);
+    let sum = numbers.reduce((total, num) => total + num, 0);
+    document.getElementById("sumResult").innerText = "Sum: " + sum;
+}
+
+// Q4: Find the Longest Word in a String
+function findLongest() {
+    let sentence = document.getElementById("longestWordInput").value;
+    let words = sentence.split(' ');
+    let longestWord = words.reduce((longest, current) => current.length > longest.length ? current : longest, "");
+    document.getElementById("longestWordResult").innerText = "Longest Word: " + longestWord;
+}
+
+// Q6: Find the Factorial of a Number
+function calculateFactorial() {
+    let num = parseInt(document.getElementById("factorialInput").value);
+    let factorial = (num === 0 || num === 1) ? 1 : Array.from({ length: num }, (_, i) => i + 1).reduce((a, b) => a * b, 1);
+    document.getElementById("factorialResult").innerText = "Factorial: " + factorial;
+}
+
+    </script>
+</body>
+</html>
